@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="650.0" style="-fx-background-color: #181414;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.UIController">
+   <children>
+      <AnchorPane fx:id="gameOver" layoutX="185.0" layoutY="133.0" prefHeight="336.0" prefWidth="278.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c;">
+         <children>
+            <Label fx:id="won" layoutX="67.0" layoutY="47.0" text="You Lost!" textFill="WHITE">
+               <font>
+                  <Font name="Consolas Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label layoutX="52.0" layoutY="89.0" text="word was      !" textFill="WHITE">
+               <font>
+                  <Font name="Consolas Bold" size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="word" layoutX="155.0" layoutY="89.0" prefHeight="26.0" prefWidth="64.0" text="crane" textFill="RED">
+               <font>
+                  <Font name="Consolas Bold" size="21.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="play" fitHeight="151.0" fitWidth="144.0" layoutX="67.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/play.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="69.0" layoutY="256.0" text="play another" textFill="WHITE">
+               <font>
+                  <Font name="Consolas Bold" size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="65.0" prefWidth="650.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 0 0 1 0;">
+         <children>
+            <Label layoutX="205.0" layoutY="15.0" text="Infinite-Wordle" textFill="WHITE">
+               <font>
+                  <Font name="Consolas Bold" size="29.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="141.0" layoutY="85.0" prefHeight="436.0" prefWidth="369.0" style="-fx-background-color: #181414;">
+         <children>
+            <TextField fx:id="A1L1" alignment="CENTER" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A1L2" alignment="CENTER" editable="false" layoutX="83.0" layoutY="14.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A1L3" alignment="CENTER" editable="false" layoutX="152.0" layoutY="14.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A1L4" alignment="CENTER" editable="false" layoutX="221.0" layoutY="14.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A1L5" alignment="CENTER" editable="false" layoutX="290.0" layoutY="14.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A2L1" alignment="CENTER" editable="false" layoutX="14.0" layoutY="83.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A2L2" alignment="CENTER" editable="false" layoutX="83.0" layoutY="83.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A2L3" alignment="CENTER" editable="false" layoutX="152.0" layoutY="83.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A2L4" alignment="CENTER" editable="false" layoutX="221.0" layoutY="83.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A2L5" alignment="CENTER" editable="false" layoutX="290.0" layoutY="83.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A3L1" alignment="CENTER" editable="false" layoutX="14.0" layoutY="152.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A3L2" alignment="CENTER" editable="false" layoutX="83.0" layoutY="152.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A3L3" alignment="CENTER" editable="false" layoutX="152.0" layoutY="152.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A3L4" alignment="CENTER" editable="false" layoutX="221.0" layoutY="152.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A3L5" alignment="CENTER" editable="false" layoutX="290.0" layoutY="152.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A4L1" alignment="CENTER" editable="false" layoutX="14.0" layoutY="221.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A4L2" alignment="CENTER" editable="false" layoutX="83.0" layoutY="221.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A4L3" alignment="CENTER" editable="false" layoutX="152.0" layoutY="221.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A4L4" alignment="CENTER" editable="false" layoutX="221.0" layoutY="221.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A4L5" alignment="CENTER" editable="false" layoutX="290.0" layoutY="221.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A5L1" alignment="CENTER" editable="false" layoutX="14.0" layoutY="290.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A5L2" alignment="CENTER" editable="false" layoutX="83.0" layoutY="290.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A5L3" alignment="CENTER" editable="false" layoutX="152.0" layoutY="290.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A5L4" alignment="CENTER" editable="false" layoutX="221.0" layoutY="290.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A5L5" alignment="CENTER" editable="false" layoutX="290.0" layoutY="290.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A6L1" alignment="CENTER" editable="false" layoutX="14.0" layoutY="359.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A6L2" alignment="CENTER" editable="false" layoutX="83.0" layoutY="359.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A6L3" alignment="CENTER" editable="false" layoutX="152.0" layoutY="359.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A6L4" alignment="CENTER" editable="false" layoutX="221.0" layoutY="359.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+            <TextField fx:id="A6L5" alignment="CENTER" editable="false" layoutX="290.0" layoutY="359.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #181414; -fx-border-color: #403c3c; -fx-border-width: 2;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></TextField>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="W" editable="false" layoutX="127.0" layoutY="541.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="W">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="E" editable="false" layoutX="178.0" layoutY="541.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="E">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="R" editable="false" layoutX="229.0" layoutY="541.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="R">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="T" editable="false" layoutX="280.0" layoutY="541.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="T">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="Y" editable="false" layoutX="331.0" layoutY="541.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="Y">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="U" editable="false" layoutX="382.0" layoutY="541.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="U">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="I" editable="false" layoutX="433.0" layoutY="541.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="I">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="O" editable="false" layoutX="484.0" layoutY="541.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="O">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="P" editable="false" layoutX="535.0" layoutY="541.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="P">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="A" editable="false" layoutX="103.0" layoutY="607.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="A">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="S" editable="false" layoutX="154.0" layoutY="607.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="S">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="D" editable="false" layoutX="205.0" layoutY="607.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="D">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="F" editable="false" layoutX="256.0" layoutY="607.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="F">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="G" editable="false" layoutX="307.0" layoutY="607.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="G">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="H" editable="false" layoutX="358.0" layoutY="607.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="H">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="J" editable="false" layoutX="409.0" layoutY="607.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="J">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="K" editable="false" layoutX="460.0" layoutY="607.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="K">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="L" editable="false" layoutX="511.0" layoutY="607.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="L">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="Z" editable="false" layoutX="154.0" layoutY="673.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="Z">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="X" editable="false" layoutX="205.0" layoutY="673.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="X">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="C" editable="false" layoutX="256.0" layoutY="673.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="C">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="V" editable="false" layoutX="307.0" layoutY="673.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="V">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="B" editable="false" layoutX="358.0" layoutY="673.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="B">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="N" editable="false" layoutX="409.0" layoutY="673.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="N">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="M" editable="false" layoutX="460.0" layoutY="673.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="M">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="back" editable="false" layoutX="509.0" layoutY="673.0" prefHeight="60.0" prefWidth="71.0" style="-fx-background-color: #888484;" text="&lt;--">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="enter" editable="false" layoutX="76.0" layoutY="673.0" prefHeight="60.0" prefWidth="71.0" style="-fx-background-color: #888484;" text="ENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="Q" editable="false" layoutX="76.0" layoutY="541.0" prefHeight="60.0" prefWidth="45.0" style="-fx-background-color: #888484;" text="Q">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </TextField>
+      <Label fx:id="streak" layoutX="11.0" layoutY="76.0" text="Streak: 0" textFill="WHITE">
+         <font>
+            <Font name="Consolas Bold" size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
