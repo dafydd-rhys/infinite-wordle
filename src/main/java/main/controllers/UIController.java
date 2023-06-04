@@ -1,8 +1,5 @@
 package main.controllers;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
@@ -10,9 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.transform.Rotate;
-import javafx.util.Duration;
-
+import main.Animations;
 import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
@@ -149,6 +144,8 @@ public class UIController implements Initializable {
     private Label word;
     @FXML
     private ImageView play;
+    @FXML
+    private ImageView reset;
 
     private TextField[][] attempts;
     private TextField[] selectedAttempt;
@@ -156,8 +153,10 @@ public class UIController implements Initializable {
     private int letterCount = 0;
     private int attemptCount = 0;
     private String wordToGuess;
-    private File words = new File(System.getProperty("user.dir") +
+    private final File words = new File(System.getProperty("user.dir") +
             "\\src\\main\\resources\\main\\data\\words.txt");
+    private TextField[] selectedFields = new TextField[5];
+    private TextField[] keyboard;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -167,7 +166,16 @@ public class UIController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        TextField[] keyboard = new TextField[]{A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z};
+        reset.setCursor(Cursor.HAND);
+        reset.setOnMouseClicked(e -> {
+            streakCount = 0;
+            streak.setText("Streak: " + streakCount);
+            setAttempts();
+            reset();
+            initialize(url, resourceBundle);
+        });
+
+        keyboard = new TextField[]{A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z};
         TextField[] attempt1 = new TextField[]{A1L1, A1L2, A1L3, A1L4, A1L5};
         TextField[] attempt2 = new TextField[]{A2L1, A2L2, A2L3, A2L4, A2L5};
         TextField[] attempt3 = new TextField[]{A3L1, A3L2, A3L3, A3L4, A3L5};
@@ -199,7 +207,7 @@ public class UIController implements Initializable {
 
                 try {
                     if (dictionaryContainsWord(word.toString().toLowerCase())) {
-                        pop();
+                        Animations.pop(selectedAttempt);
                         char[] guess = word.toString().toLowerCase().toCharArray();
                         char[] actualWord = wordToGuess.toCharArray();
 
@@ -213,17 +221,22 @@ public class UIController implements Initializable {
                         for (int i = 0; i < 5; i++) {
                             if (guess[i] == actualWord[i]) {
                                 selectedAttempt[i].setStyle(green);
+                                selectedFields[i].setStyle("-fx-background-color: #b89c3c;");
                             } else if (guess[i] != actualWord[i] && wordToGuess.contains(String.valueOf(guess[i]))) {
                                 selectedAttempt[i].setStyle(yellow);
+                                selectedFields[i].setStyle("-fx-background-color: #b89c3c;");
                             } else {
                                 selectedAttempt[i].setStyle(grey);
+                                selectedFields[i].setStyle("-fx-background-color: #403c3c; -fx-text-fill: white; " +
+                                        "-fx-highlight-fill: null; -fx-highlight-text-fill: null;");
                             }
                         }
+                        selectedFields = new TextField[5];
 
                         if (word.toString().equalsIgnoreCase(wordToGuess)) {
                             streakCount++;
                             streak.setText("Streak: " + streakCount);
-                            rotate();
+                            Animations.rotate(selectedAttempt, enter, back).setOnFinished(ev -> gameOver(true));
                         } else {
                             if (attemptCount < 5) {
                                 attemptCount++;
@@ -236,7 +249,7 @@ public class UIController implements Initializable {
                             }
                         }
                     } else {
-                        shake();
+                        Animations.shake(selectedAttempt);
                     }
                 } catch (FileNotFoundException ex) {
                     throw new RuntimeException(ex);
@@ -300,8 +313,15 @@ public class UIController implements Initializable {
         selectedAttempt = attempts[0];
         attemptCount = 0;
         letterCount = 0;
+
+        for (TextField key : keyboard) {
+            key.setDisable(false);
+            key.setStyle("-fx-background-color: #888484; -fx-text-fill: white;");
+        }
+
         enter.setDisable(false);
         back.setDisable(false);
+        selectedFields = new TextField[5];
     }
 
     private boolean dictionaryContainsWord(String word) throws FileNotFoundException {
@@ -319,6 +339,7 @@ public class UIController implements Initializable {
     private void onKeyboardClick(TextField field) {
         if (letterCount < 5) {
             selectedAttempt[letterCount].setText(String.valueOf(field.getCharacters().charAt(0)));
+            selectedFields[letterCount] = field;
             letterCount++;
         }
     }
@@ -330,76 +351,6 @@ public class UIController implements Initializable {
         reader.close();
 
         wordToGuess = Files.readAllLines(Paths.get(words.toURI())).get(new Random().nextInt(lines));
-    }
-
-    private void shake() {
-        int duration = 500; // Total duration for the animation in milliseconds
-        int stepDuration = duration / 3; // Duration for each movement step
-
-        for (TextField field : selectedAttempt) {
-            Timeline timeline = new Timeline(
-                    new KeyFrame(Duration.millis(stepDuration),
-                            new KeyValue(field.layoutXProperty(), field.getLayoutX() + 5)),
-                    new KeyFrame(Duration.millis(2 * stepDuration),
-                            new KeyValue(field.layoutXProperty(), field.getLayoutX() - 5)),
-                    new KeyFrame(Duration.millis(3 * stepDuration),
-                            new KeyValue(field.layoutXProperty(), field.getLayoutX())));
-
-            timeline.setCycleCount(1);
-            timeline.play();
-        }
-    }
-
-    private void pop() {
-        int duration = 500; // Total duration for the animation in milliseconds
-        int stepDuration = duration / 4; // Duration for each step
-
-        for (TextField field : selectedAttempt) {
-            double originalWidth = field.getWidth();
-            double originalHeight = field.getHeight();
-
-            Timeline timeline = new Timeline(new KeyFrame(Duration.millis(stepDuration),
-                    new KeyValue(field.layoutXProperty(), field.getLayoutX() - 1),
-                    new KeyValue(field.layoutYProperty(), field.getLayoutY() - 1),
-                    new KeyValue(field.prefWidthProperty(), originalWidth + 2),
-                    new KeyValue(field.prefHeightProperty(), originalHeight + 2)),
-                    new KeyFrame(Duration.millis(2 * stepDuration),
-                            new KeyValue(field.layoutXProperty(), field.getLayoutX()),
-                            new KeyValue(field.layoutYProperty(), field.getLayoutY()),
-                            new KeyValue(field.prefWidthProperty(), originalWidth),
-                            new KeyValue(field.prefHeightProperty(), originalHeight)));
-
-            timeline.setCycleCount(1);
-            timeline.play();
-        }
-    }
-
-    private void rotate() {
-        enter.setDisable(true);
-        back.setDisable(true);
-        double flipDuration = 1000; // Duration for the flip animation in milliseconds
-        double flipAngle = 360; // Angle to rotate the TextField for the flip animation
-
-        for (TextField field : selectedAttempt) {
-            // Rotate the TextField around the Y-axis
-            Rotate rotate = new Rotate(flipAngle, Rotate.Y_AXIS);
-            field.getTransforms().add(rotate);
-
-            Timeline timeline = new Timeline();
-
-            // Step 1: Rotate the TextField back to its normal position
-            KeyFrame keyFrame1 = new KeyFrame(Duration.ZERO,
-                    new KeyValue(rotate.angleProperty(), flipAngle));
-            KeyFrame keyFrame2 = new KeyFrame(Duration.millis(flipDuration),
-                    new KeyValue(rotate.angleProperty(), 0));
-            timeline.getKeyFrames().addAll(keyFrame1, keyFrame2);
-
-            timeline.setCycleCount(1);
-            timeline.setAutoReverse(false);
-            timeline.play();
-
-            timeline.setOnFinished(e -> gameOver(true));
-        }
     }
 
 }
